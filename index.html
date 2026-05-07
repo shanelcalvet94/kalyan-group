@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalyan Group — Hospitality that creates belonging.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A09;
+    --beige: #E5D8C6;
+    --beige-light: #F5EFE5;
+    --beige-pale: #FAF7F2;
+    --brown: #5C4A3E;
+    --brown-mid: #7A6458;
+    --brown-light: #9E8578;
+    --white: #FDFAF6;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--white); color: var(--black); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 80px;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  nav.scrolled { background: rgba(10,10,9,0.92); backdrop-filter: blur(12px); }
+  .nav-logo { display: block; text-decoration: none; height: 42px; }
+  .nav-logo img { height: 100%; width: auto; display: block; object-fit: contain; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 12px; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--beige); }
+  .nav-cta {
+    color: var(--beige) !important;
+    border: 1px solid rgba(229,216,198,0.4);
+    padding: 8px 20px !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--beige) !important; color: var(--black) !important; }
+
+  /* HERO */
+  #hero {
+    height: 100vh; min-height: 700px; background: var(--black);
+    position: relative; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 0 60px 80px; overflow: hidden;
+  }
+  /* TO ADD YOUR HERO PHOTO: set background-image on .hero-bg below */
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: none; /* replace with url("your-photo.jpg") */
+    background-size: cover; background-position: center 40%;
+    animation: cinematicDrift 28s ease-in-out infinite;
+  }
+  @keyframes cinematicDrift {
+    0%   { transform: scale(1.06) translate(0px,  0px); }
+    33%  { transform: scale(1.08) translate(-8px, -4px); }
+    66%  { transform: scale(1.07) translate(6px,  -2px); }
+    100% { transform: scale(1.06) translate(0px,  0px); }
+  }
+  .hero-placeholder {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1c130d 0%, #2a1e14 25%, #1a1510 50%, #0f0c09 75%, #0a0a09 100%);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top,    rgba(10,10,9,0.92) 0%,  rgba(10,10,9,0.4) 40%, transparent 70%),
+      linear-gradient(to right,  rgba(10,10,9,0.6)  0%,  transparent 50%),
+      linear-gradient(to bottom, rgba(10,10,9,0.5)  0%,  transparent 30%);
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 68% 35%, rgba(139,103,72,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 20% 75%, rgba(229,216,198,0.06) 0%, transparent 55%),
+      radial-gradient(ellipse 30% 30% at 85% 80%, rgba(92,58,38,0.10) 0%, transparent 50%);
+    animation: ambientShift 14s ease-in-out infinite alternate;
+  }
+  @keyframes ambientShift {
+    0%   { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 1.0; transform: scale(1.04); }
+  }
+  .hero-glow {
+    position: absolute; bottom: 30%; left: 0; right: 0; height: 340px;
+    background: radial-gradient(ellipse 90% 100% at 60% 100%, rgba(160,110,60,0.22) 0%, rgba(120,75,35,0.10) 40%, transparent 70%);
+    animation: glowPulse 8s ease-in-out infinite alternate;
+  }
+  @keyframes glowPulse {
+    0%   { opacity: 0.7; transform: scaleY(1); }
+    100% { opacity: 1.0; transform: scaleY(1.15); }
+  }
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 160px 160px; opacity: 0.028; pointer-events: none;
+  }
+  .hero-letterbox-top, .hero-letterbox-bottom {
+    position: absolute; left: 0; right: 0; height: 48px;
+    background: var(--black); z-index: 1; pointer-events: none;
+  }
+  .hero-letterbox-top { top: 0; }
+  .hero-letterbox-bottom { bottom: 0; }
+  .hero-lines-svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.06; pointer-events: none; }
+  .hero-line {
+    position: absolute; top: 0; left: 60px; width: 1px; height: 100vh;
+    background: linear-gradient(to bottom, transparent 0%, rgba(229,216,198,0.18) 30%, rgba(229,216,198,0.18) 70%, transparent 100%);
+    z-index: 2;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-eyebrow {
+    font-family: var(--sans); font-size: 11px; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--beige); opacity: 0.7; margin-bottom: 28px;
+  }
+  .hero-headline {
+    font-family: var(--serif); font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300; line-height: 1.0; color: var(--white);
+    letter-spacing: -0.01em; margin-bottom: 32px;
+  }
+  .hero-headline em { font-style: italic; color: var(--beige); }
+  .hero-sub {
+    font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55);
+    max-width: 480px; line-height: 1.8; margin-bottom: 52px; letter-spacing: 0.01em;
+  }
+  .hero-actions { display: flex; gap: 24px; align-items: center; }
+  .btn-primary {
+    font-family: var(--sans); font-size: 11px; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
+    background: var(--beige); color: var(--black); padding: 16px 36px;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--white); }
+  .btn-ghost {
+    font-family: var(--sans); font-size: 11px; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--beige); border-color: var(--beige); }
+  .hero-scroll {
+    position: absolute; bottom: 40px; right: 60px; z-index: 2;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .scroll-line { width: 40px; height: 1px; background: rgba(255,255,255,0.2); }
+
+  /* SHARED */
+  section { position: relative; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .section-label {
+    font-family: var(--sans); font-size: 10px; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase; color: var(--brown-light);
+    margin-bottom: 24px; display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--brown-light); opacity: 0.5; display: inline-block; }
+
+  /* VISION */
+  #vision { background: var(--beige-pale); padding: 120px 0; }
+  .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .vision-left h2 {
+    font-family: var(--serif); font-size: clamp(36px, 4vw, 58px);
+    font-weight: 300; line-height: 1.15; color: var(--black); margin-bottom: 32px;
+  }
+  .vision-left h2 em { font-style: italic; color: var(--brown); }
+  .vision-quote {
+    font-family: var(--serif); font-size: 18px; font-style: italic; font-weight: 300;
+    color: var(--brown); border-left: 2px solid var(--beige);
+    padding-left: 24px; margin-bottom: 40px; line-height: 1.6;
+  }
+  .vision-right { padding-top: 24px; }
+  .vision-right p { font-size: 15px; font-weight: 300; color: var(--brown-mid); line-height: 1.9; margin-bottom: 24px; }
+
+  /* PORTFOLIO */
+  #brands { background: var(--black); padding: 120px 0; }
+  .brands-intro { max-width: 680px; margin-bottom: 72px; }
+  .brands-intro h2 {
+    font-family: var(--serif); font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+  }
+  .brands-intro p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.8; }
+  .brands-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .brand-card {
+    position: relative; padding: 64px 56px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(229,216,198,0.07);
+    overflow: hidden; transition: background 0.3s;
+  }
+  .brand-card:hover { background: rgba(255,255,255,0.04); }
+  .brand-card-accent { position: absolute; top: 0; left: 0; width: 3px; height: 60px; background: var(--beige); opacity: 0.3; }
+  .brand-logo-img {
+    height: 80px; width: auto; max-width: 260px;
+    object-fit: contain; object-position: left center;
+    margin-bottom: 32px; display: block;
+  }
+  .coming-soon-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(229,216,198,0.06);
+    border: 1px solid rgba(229,216,198,0.2);
+    padding: 6px 16px; margin-bottom: 24px;
+    font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--beige); opacity: 0.85;
+  }
+  .coming-soon-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--beige); opacity: 0.7;
+    animation: pulseDot 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%       { opacity: 1.0; transform: scale(1.4); }
+  }
+  .brand-desc {
+    font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5);
+    line-height: 1.85; margin-bottom: 36px; max-width: 400px;
+  }
+  .brand-features { list-style: none; margin-bottom: 40px; }
+  .brand-features li {
+    font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.35);
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 10px; letter-spacing: 0.03em;
+  }
+  .brand-features li::before { content: '—'; color: var(--beige); opacity: 0.4; font-size: 10px; }
+  .brand-link {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--beige); text-decoration: none;
+    border-bottom: 1px solid rgba(229,216,198,0.3);
+    padding-bottom: 3px; transition: opacity 0.2s; display: inline-block;
+  }
+  .brand-link:hover { opacity: 0.7; }
+  .brand-coming-note {
+    font-size: 13px; font-weight: 300; font-style: italic;
+    color: rgba(255,255,255,0.22); letter-spacing: 0.02em;
+  }
+
+  /* STATS */
+  #stats { background: var(--beige); padding: 72px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .stat-item {
+    padding: 0 48px; border-right: 1px solid rgba(92,74,62,0.15); text-align: center;
+  }
+  .stat-item:first-child { border-left: 1px solid rgba(92,74,62,0.15); }
+  .stat-num { font-family: var(--serif); font-size: 52px; font-weight: 300; color: var(--black); line-height: 1; margin-bottom: 10px; display: block; }
+  .stat-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brown-mid); font-weight: 300; }
+
+  /* PHILOSOPHY */
+  #philosophy { background: var(--beige-pale); padding: 140px 0; }
+  .philosophy-grid { display: grid; grid-template-columns: 380px 1fr; gap: 100px; align-items: center; }
+  .philosophy-emblem {
+    width: 200px; height: 200px; border-radius: 50%;
+    border: 1px solid rgba(92,74,62,0.2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; margin-bottom: 48px;
+  }
+  .philosophy-emblem::before { content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 1px dashed rgba(92,74,62,0.15); }
+  .philosophy-emblem-text { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--black); letter-spacing: 0.05em; }
+  .philosophy-emblem-dot { width: 8px; height: 8px; background: var(--brown-light); transform: rotate(45deg); margin: 0 6px; display: inline-block; opacity: 0.5; vertical-align: middle; }
+  .philosophy-left h2 { font-family: var(--serif); font-size: clamp(32px, 3.5vw, 50px); font-weight: 300; color: var(--black); line-height: 1.1; margin-bottom: 20px; }
+  .philosophy-left h2 em { font-style: italic; color: var(--brown); }
+  .philosophy-block { padding: 36px 0; border-bottom: 1px solid rgba(92,74,62,0.1); }
+  .philosophy-block:first-child { padding-top: 0; border-top: 1px solid rgba(92,74,62,0.1); }
+  .philosophy-block h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--black); margin-bottom: 10px; }
+  .philosophy-block p { font-size: 14px; font-weight: 300; color: var(--brown-mid); line-height: 1.85; }
+
+  /* DEVELOPMENT */
+  #development { background: var(--black); padding: 140px 0; position: relative; overflow: hidden; }
+  .dev-bg-text {
+    position: absolute; top: 50%; right: -30px; transform: translateY(-50%);
+    font-family: var(--serif); font-size: 220px; font-weight: 300;
+    color: rgba(229,216,198,0.025); white-space: nowrap; pointer-events: none; line-height: 1;
+  }
+  .dev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; position: relative; z-index: 1; }
+  .dev-left h2 { font-family: var(--serif); font-size: clamp(36px, 4vw, 60px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 24px; }
+  .dev-left h2 em { font-style: italic; color: var(--beige); }
+  .dev-left > p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.85; margin-bottom: 48px; }
+  .dev-services { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+  .dev-service { background: rgba(255,255,255,0.03); border: 1px solid rgba(229,216,198,0.07); padding: 24px; }
+  .dev-service h4 { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+  .dev-service p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.7; }
+  .dev-geo { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; letter-spacing: 0.05em; }
+  .dev-right { padding-top: 16px; }
+  .dev-right h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--beige); margin-bottom: 8px; opacity: 0.7; }
+  .dev-right > p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); margin-bottom: 36px; line-height: 1.8; }
+  .contact-form { display: flex; flex-direction: column; gap: 0; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+  .form-field { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(229,216,198,0.08); margin-bottom: 1px; }
+  .form-field label { position: absolute; top: 14px; left: 20px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229,216,198,0.35); pointer-events: none; font-weight: 300; }
+  .form-field input, .form-field select, .form-field textarea { width: 100%; background: transparent; border: none; padding: 28px 20px 12px; font-family: var(--sans); font-size: 14px; font-weight: 300; color: var(--white); outline: none; -webkit-appearance: none; }
+  .form-field textarea { height: 100px; resize: none; padding-top: 32px; }
+  .form-field select option { background: #1a1a18; }
+  .form-submit { margin-top: 1px; background: var(--beige); color: var(--black); border: none; padding: 20px; font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; width: 100%; }
+  .form-submit:hover { background: var(--white); }
+
+  /* LEADERSHIP */
+  #team { background: var(--beige-pale); padding: 120px 0; }
+  .team-intro { max-width: 600px; margin-bottom: 72px; }
+  .team-intro h2 { font-family: var(--serif); font-size: clamp(34px, 3.5vw, 52px); font-weight: 300; color: var(--black); line-height: 1.1; margin-bottom: 20px; }
+  .team-intro p { font-size: 15px; font-weight: 300; color: var(--brown-mid); line-height: 1.8; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 340px); gap: 2px; }
+  .team-member { background: var(--white); padding: 48px 40px; border: 1px solid rgba(92,74,62,0.07); transition: background 0.2s; }
+  .team-member:hover { background: var(--beige-light); }
+  .member-initials { width: 52px; height: 52px; background: var(--beige); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--brown); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .member-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--black); margin-bottom: 6px; }
+  .member-role { font-size: 10px; font-weight: 300; color: var(--brown-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .member-desc { font-size: 13px; font-weight: 300; color: var(--brown-mid); line-height: 1.75; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 80px 0 40px; border-top: 1px solid rgba(229,216,198,0.07); }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo-img { height: 42px; width: auto; object-fit: contain; object-position: left center; display: block; margin-bottom: 20px; }
+  .footer-brand-col p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.8; max-width: 260px; }
+  .footer-col h5 { font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--beige); opacity: 0.45; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--beige); }
+  .footer-col ul li span { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.2); font-style: italic; }
+  .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(229,216,198,0.07); display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+  .footer-tagline { font-family: var(--serif); font-size: 14px; font-style: italic; color: rgba(255,255,255,0.2); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-content > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-eyebrow  { animation-delay: 0.2s; }
+  .hero-headline { animation-delay: 0.4s; }
+  .hero-sub      { animation-delay: 0.6s; }
+  .hero-actions  { animation-delay: 0.8s; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <img src="logo_kalyan_beige.png" alt="Kalyan Group">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#vision">Our Vision</a></li>
+    <li><a href="#brands">Our Portfolio</a></li>
+    <li><a href="#team">Leadership</a></li>
+    <li><a href="#development" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-placeholder"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-letterbox-top"></div>
+  <div class="hero-letterbox-bottom"></div>
+  <svg class="hero-lines-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="520" x2="1440" y2="480" stroke="#E5D8C6" stroke-width="0.5"/>
+    <line x1="960" y1="500" x2="0"    y2="200" stroke="#E5D8C6" stroke-width="0.4"/>
+    <line x1="960" y1="500" x2="0"    y2="320" stroke="#E5D8C6" stroke-width="0.3"/>
+    <line x1="960" y1="500" x2="0"    y2="440" stroke="#E5D8C6" stroke-width="0.25"/>
+    <line x1="960" y1="500" x2="0"    y2="900" stroke="#E5D8C6" stroke-width="0.3"/>
+    <line x1="960" y1="500" x2="360"  y2="900" stroke="#E5D8C6" stroke-width="0.25"/>
+    <line x1="960" y1="500" x2="1440" y2="300" stroke="#E5D8C6" stroke-width="0.35"/>
+    <line x1="960" y1="500" x2="1440" y2="420" stroke="#E5D8C6" stroke-width="0.25"/>
+    <line x1="960" y1="500" x2="1440" y2="700" stroke="#E5D8C6" stroke-width="0.3"/>
+    <line x1="340" y1="0"   x2="340"  y2="900" stroke="#E5D8C6" stroke-width="0.3"/>
+    <rect x="954" y="494" width="12" height="12" transform="rotate(45 960 500)" fill="none" stroke="#E5D8C6" stroke-width="0.8"/>
+    <rect x="948" y="488" width="24" height="24" transform="rotate(45 960 500)" fill="none" stroke="#E5D8C6" stroke-width="0.4"/>
+  </svg>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Hospitality Management Company</p>
+    <h1 class="hero-headline">Hospitality that<br>creates <em>belonging.</em></h1>
+    <p class="hero-sub">A platform dedicated to creating destinations centered on well-being, belonging, and human connection.</p>
+    <div class="hero-actions">
+      <a href="#vision" class="btn-primary">Our Vision</a>
+      <a href="#development" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<!-- OUR VISION -->
+<section id="vision">
+  <div class="section-inner">
+    <div class="section-label">Our Vision</div>
+    <div class="vision-grid">
+      <div class="vision-left">
+        <h2>Well-being is the<br>new luxury.<br><em>Belonging is the<br>ultimate aspiration.</em></h2>
+        <blockquote class="vision-quote">"Today's travelers seek more than comfort and luxury — they seek experiences that improve their well-being and create genuine human connection."</blockquote>
+      </div>
+      <div class="vision-right">
+        <p>Kalyan develops and manages distinctive hospitality concepts that combine operational excellence with a deeper focus on community, belonging, and transformative guest experiences.</p>
+        <p>We believe hospitality is evolving. Loneliness has become one of the defining challenges of modern life. Kalyan exists to respond to this shift — creating environments that nurture well-being while fostering authentic human connection.</p>
+        <p>KALYAN was founded by two lifelong friends, Gregg Snyder and Kevin Batt, whose shared passion for hospitality is rooted in their natural ability to connect people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PORTFOLIO -->
+<section id="brands">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--brown-light);">Our Portfolio</div>
+    <div class="brands-intro">
+      <h2>Two brands.<br>One belief.</h2>
+      <p>Kalyan develops and manages distinctive hospitality brands rooted in its founding philosophy — each offering a unique pathway toward well-being and human connection.</p>
+    </div>
+    <div class="brands-grid">
+
+      <!-- ANAIA — Concept, Coming Soon -->
+      <div class="brand-card">
+        <div class="brand-card-accent"></div>
+        <img class="brand-logo-img" src="logo_anaia.png" alt="ANAIA Well-Being Resorts">
+        <div class="coming-soon-badge">
+          <span class="coming-soon-dot"></span>
+          Concept in Development — Coming Soon
+        </div>
+        <p class="brand-desc">A vibrant well-being resort experience where active adults cultivate vitality, personal growth, and meaningful connection. ANAIA is a hospitality concept currently in development — designed for curious, worldly adults who believe life gets richer with age.</p>
+        <ul class="brand-features">
+          <li>Sports &amp; movement programming</li>
+          <li>Wellness and restoration experiences</li>
+          <li>Curated social rituals</li>
+          <li>Residential lifestyle at ANAIA Homes</li>
+          <li>Vibrant community life</li>
+        </ul>
+        <p class="brand-coming-note">Destinations to be announced. Stay tuned.</p>
+      </div>
+
+      <!-- AMRIT — Live -->
+      <div class="brand-card">
+        <div class="brand-card-accent" style="background: #1a6e8a; opacity: 0.7;"></div>
+        <img class="brand-logo-img" src="logo_amrit.png" alt="Amrit Ocean Resort — Wellness For Life">
+        <p class="brand-desc">A science-driven wellness destination oceanfront in Palm Beach — combining modern wellness science with ancient healing traditions to create highly personalized wellness journeys that support long-term vitality and balance.</p>
+        <ul class="brand-features">
+          <li>Advanced diagnostics &amp; wellness technologies</li>
+          <li>Personalized wellness programs &amp; coaching</li>
+          <li>103,000 sq ft spa &amp; wellness center</li>
+          <li>Integrative healing therapies</li>
+          <li>Expert-led longevity programs</li>
+        </ul>
+        <a href="https://amritocean.com" target="_blank" rel="noopener" class="brand-link">Visit Amrit Ocean Resort →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num">21%</span>
+        <span class="stat-label">of U.S. adults feel seriously lonely</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-label">distinctive hospitality brands creating belonging</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">connections waiting to be made</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="section-label">The Kalyan Philosophy</div>
+    <div class="philosophy-grid">
+      <div class="philosophy-left">
+        <div class="philosophy-emblem">
+          <span class="philosophy-emblem-text">K<span class="philosophy-emblem-dot"></span>G</span>
+        </div>
+        <h2>Hospitality in<br>its <em>truest sense.</em></h2>
+      </div>
+      <div class="philosophy-right">
+        <div class="philosophy-block">
+          <h3>Purpose</h3>
+          <p>To create places where people feel they belong. Kalyan exists to design and operate hospitality concepts that elevate well-being while cultivating meaningful human connection.</p>
+        </div>
+        <div class="philosophy-block">
+          <h3>Vision</h3>
+          <p>To redefine hospitality around well-being, belonging, and human connection. Kalyan aspires to build a new generation of hospitality brands that respond to the evolving aspirations of modern travelers.</p>
+        </div>
+        <div class="philosophy-block">
+          <h3>Mission</h3>
+          <p>To develop and operate hospitality brands that inspire transformation and community. Kalyan partners with visionary owners and destinations to create distinctive hospitality experiences rooted in well-being, authenticity, and meaningful connection.</p>
+        </div>
+        <div class="philosophy-block">
+          <h3>Human Connection</h3>
+          <p>We believe hospitality is ultimately about people. Every experience we create seeks to foster meaningful relationships and shared moments. Belonging is not a byproduct of a great stay — it is the destination.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVELOPMENT & CONTACT -->
+<section id="development">
+  <div class="dev-bg-text">PARTNER</div>
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--brown-light);">Development &amp; Partnerships</div>
+    <div class="dev-grid">
+      <div class="dev-left">
+        <h2>Partner<br>with <em>Kalyan.</em></h2>
+        <p>Kalyan collaborates with developers, investors, and property owners to create distinctive hospitality destinations. We bring the expertise, the brands, and the philosophy — you bring the vision and the land.</p>
+        <div class="dev-services">
+          <div class="dev-service">
+            <h4>Brand Development</h4>
+            <p>Creating distinctive hospitality brands that respond to market demand and owner vision.</p>
+          </div>
+          <div class="dev-service">
+            <h4>Operational Strategy</h4>
+            <p>Operational excellence combined with a culture of genuine hospitality and community.</p>
+          </div>
+          <div class="dev-service">
+            <h4>Concept Creation</h4>
+            <p>Designing hospitality environments from the ground up, rooted in well-being principles.</p>
+          </div>
+          <div class="dev-service">
+            <h4>Project Types</h4>
+            <p>Resort developments, wellness destinations, private clubs, and master-planned communities.</p>
+          </div>
+        </div>
+        <p class="dev-geo">Geographic focus: North America &amp; the Caribbean</p>
+      </div>
+      <div class="dev-right">
+        <h3>Let's begin a conversation.</h3>
+        <p>Tell us about your project. We'll be in touch within 48 hours.</p>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" name="fname">
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" name="lname">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Company / Organization</label>
+            <input type="text" name="company">
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" name="email">
+          </div>
+          <div class="form-field">
+            <label>Type of Inquiry</label>
+            <select name="inquiry">
+              <option value="" disabled selected></option>
+              <option>Development Partnership</option>
+              <option>Investment Opportunity</option>
+              <option>Media Inquiry</option>
+              <option>General Contact</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Message</label>
+            <textarea name="message"></textarea>
+          </div>
+          <button class="form-submit">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="team">
+  <div class="section-inner">
+    <div class="section-label">Leadership</div>
+    <div class="team-intro">
+      <h2>The people behind the vision.</h2>
+      <p>KALYAN was founded by two lifelong friends whose shared passion for hospitality is rooted in their natural ability to connect people. Their leadership is defined by openness, authenticity, and a deep respect for diverse perspectives.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-initials">KB</div>
+        <p class="member-name">Kevin Batt</p>
+        <p class="member-role">Co-founder &amp; CEO</p>
+        <p class="member-desc">Kevin's vision for Kalyan is rooted in a lifelong belief that hospitality can serve a deeper purpose — bringing people together in ways that genuinely enrich their lives.</p>
+      </div>
+      <div class="team-member">
+        <div class="member-initials">GS</div>
+        <p class="member-name">Gregg Snyder</p>
+        <p class="member-role">Co-founder &amp; COO</p>
+        <p class="member-desc">Gregg's operational expertise and natural ability to create connection form the backbone of Kalyan's approach to designing environments where community emerges organically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <img class="footer-logo-img" src="logo_kalyan_beige.png" alt="Kalyan Group">
+        <p>Hospitality that creates belonging.<br>North America &amp; the Caribbean.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#vision">Our Vision</a></li>
+          <li><a href="#brands">Our Portfolio</a></li>
+          <li><a href="#philosophy">Our Philosophy</a></li>
+          <li><a href="#team">Leadership</a></li>
+          <li><a href="#development">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Our Brands</h5>
+        <ul>
+          <li><span>ANAIA Well-Being Resorts — Coming Soon</span></li>
+          <li><a href="https://amritocean.com" target="_blank" rel="noopener">Amrit Ocean Resort →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Kalyan Group. All rights reserved.</p>
+      <p class="footer-tagline">Hospitality that creates belonging.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+  document.querySelector('.form-submit').addEventListener('click', () => {
+    alert('Thank you — we\'ll be in touch within 48 hours.');
+  });
+</script>
+</body>
+</html>
