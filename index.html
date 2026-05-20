@@ -30,10 +30,11 @@
     padding: 0 60px; height: 88px;
     background: var(--black);
   }
-  .nav-logo { display: block; text-decoration: none; height: 92px; }
+  .nav-logo { display: block; text-decoration: none; height: 92px; isolation: isolate; }
   .nav-logo img {
     height: 100%; width: auto; display: block; object-fit: contain;
     mix-blend-mode: screen;
+    filter: brightness(1.05);
   }
   .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a {
