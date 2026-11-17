@@ -127,18 +127,18 @@ nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
 .anaia-destinations-label { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8378; margin-bottom: 12px; }
 .anaia-destinations-intro { font-family: var(--sans); font-size: 14px; font-weight: 300; color: #A8A39A; margin-bottom: 32px; }
 .destinations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.dest-card { position: relative; overflow: hidden; }
+.dest-card { display: flex; flex-direction: column; overflow: hidden; }
 .dest-photo-area { position: relative; height: 300px; overflow: hidden; }
 .dest-bg { position: absolute; inset: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: brightness(0.6); transition: transform 0.7s ease, filter 0.4s; }
 .dest-card:hover .dest-bg { transform: scale(1.06); filter: brightness(0.75); }
-.dest-sanmiguel { background-color: #6B4E3D; background-image: url('https://images.unsplash.com/photo-1601659296929-1c38f261a1f7?w=800&q=80'); }
+.dest-sanmiguel { background-color: #6B4E3D; background-image: url('dest_sanmiguel.jpg'); }
 .dest-nisibon { background-color: #1B4A6B; background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80'); }
-.dest-chacala { background-color: #2D5940; background-image: url('https://images.unsplash.com/photo-1573790387438-4da905039392?w=800&q=80'); }
+.dest-chacala { background-color: #2D5940; background-image: url('dest_chacala.jpg'); }
 .dest-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,34,58,0.7) 0%, transparent 60%); }
 .dest-photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; }
 .dest-location { font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C4BEB5; margin-bottom: 6px; }
 .dest-name { font-family: var(--serif); font-size: 22px; font-weight: 300; color: #fff; line-height: 1.2; }
-.dest-body { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: none; padding: 24px; }
+.dest-body { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: none; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
 .dest-desc { font-family: var(--sans); font-size: 13px; font-weight: 300; line-height: 1.7; color: #A8A39A; margin-bottom: 16px; }
 .dest-stats { display: flex; flex-wrap: wrap; gap: 8px; }
 .dest-stat { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--sand); background: rgba(217,201,186,0.08); border: 1px solid rgba(217,201,186,0.15); padding: 5px 12px; }
@@ -158,7 +158,9 @@ nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
 .team-member:hover .member-photo { filter: grayscale(0%); transform: scale(1.03); }
 .member-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--indigo); margin-bottom: 4px; }
 .member-role { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; }
-.member-desc { font-family: var(--sans); font-size: 13px; font-weight: 300; line-height: 1.7; color: #5a5f72; }
+.member-desc { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }
+.member-desc li { font-family: var(--sans); font-size: 12px; font-weight: 300; line-height: 1.55; color: #5a5f72; padding-left: 14px; position: relative; }
+.member-desc li::before { content: '—'; position: absolute; left: 0; color: var(--terracotta); opacity: 0.7; }
 .team-ops-note { background: var(--stone); border-left: 3px solid var(--terracotta); padding: 32px 40px; }
 .team-ops-note p { font-family: var(--sans); font-size: 14px; font-weight: 300; line-height: 1.75; color: #4a4f63; margin-bottom: 20px; }
 .team-ops-note p:last-child { margin-bottom: 0; }
@@ -285,7 +287,7 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
     <div class="section-label">Our Vision</div>
     <div class="vision-grid">
       <div class="vision-left">
-        <h2>Well-being is the new luxury. <span style="color:var(--terracotta)">Belonging is the ultimate aspiration.</span></h2>
+        <h2>Well-being is the new luxury. <span style="color:var(--terracotta);font-style:italic">Belonging is the ultimate aspiration.</span></h2>
         <blockquote class="vision-quote">"Today's travelers seek more than comfort and luxury — they seek experiences that improve their well-being and create genuine human connection."</blockquote>
       </div>
       <div class="vision-right">
@@ -488,7 +490,7 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
     <div class="section-label">Our Team</div>
     <div class="team-header">
       <h2>An operational platform <em style="color:var(--terracotta)">built to perform.</em></h2>
-      <p>Kalyan Group combines senior executive leadership with a full operational team across every hospitality discipline — marketing, sales, food &amp; beverage, rooms, wellness, and purchasing. We don't bring in a strategy team and hand things over. We stay and run it.</p>
+      <p>Kalyan Group combines senior executive leadership with a full operational team across every hospitality discipline — marketing, sales, food &amp; beverage, rooms, wellness, and purchasing.</p>
       <div class="team-pedigree">
         <span class="team-pedigree-label">Pedigree</span>
         <span class="pedigree-brand">Club Med</span>
@@ -508,7 +510,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Kevin Batt</p>
         <p class="member-role">Chief Executive Officer</p>
-        <p class="member-desc">27 years at Club Med — most recently VP of Operations, Product &amp; Development for the Americas, overseeing 9 resorts, 5,000 employees, and $360M in revenue. Opened Club Med's flagship Miches and Charlevoix resorts. As CEO, Kevin sets Kalyan's strategic direction and leads owner relationships.</p>
+        <ul class="member-desc">
+          <li>27 years at Club Med, VP Operations Americas</li>
+          <li>9 resorts, 5,000 employees, $360M revenue</li>
+          <li>Opened Club Med Miches &amp; Charlevoix</li>
+        </ul>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
@@ -516,7 +522,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Gregg Snyder</p>
         <p class="member-role">Chief Operating Officer</p>
-        <p class="member-desc">Two decades of resort operations leadership — 13 years as a Club Med General Manager across 12 resorts in the US, Mexico, Asia, Europe, and the Caribbean, then four years as Product Director for Asia Pacific. Also led lifestyle programming for BlueStar Resort &amp; Golf's active-adult communities, directly aligned with ANAIA's model.</p>
+        <ul class="member-desc">
+          <li>Club Med GM across 12 resorts globally (13 years)</li>
+          <li>Product Director, Asia Pacific (4 years)</li>
+          <li>Led active-adult programming at BlueStar Resort &amp; Golf</li>
+        </ul>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
@@ -524,7 +534,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">John Vanderslice</p>
         <p class="member-role">Senior Advisor</p>
-        <p class="member-desc">Eight years as Hilton's Global Head of Luxury &amp; Lifestyle Brands, shaping Waldorf Astoria, Conrad, and Canopy. Former CEO of Miraval Arizona (No. 1-rated destination spa) and Club Méd Americas. Advises Kalyan on brand positioning and growth.</p>
+        <ul class="member-desc">
+          <li>Hilton Global Head of Luxury &amp; Lifestyle (8 years)</li>
+          <li>CEO, Miraval Arizona — No. 1-rated destination spa</li>
+          <li>CEO, Club Méd North &amp; South America</li>
+        </ul>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
@@ -532,7 +546,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Pablo Gonzalez Carpizo</p>
         <p class="member-role">Chief Development Officer</p>
-        <p class="member-desc">20 years in global hotel development — Head of Development Americas at Meliá Hotels International, VP Acquisitions &amp; Development at Hyatt, and Director of Acquisitions at Starwood. Leads Kalyan's site selection, entitlement, and construction oversight across the ANAIA pipeline.</p>
+        <ul class="member-desc">
+          <li>Head of Development Americas, Meliá Hotels</li>
+          <li>VP Acquisitions &amp; Development, Hyatt</li>
+          <li>Director of Acquisitions, Starwood Hotels</li>
+        </ul>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
@@ -540,7 +558,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Patrick Mitchell</p>
         <p class="member-role">Chief Revenue Officer</p>
-        <p class="member-desc">25+ years in commercial travel and hospitality leadership. Most recently led global sales for The Ritz-Carlton Yacht Collection; earlier roles at Sonder, Cathay Pacific, and Club Med. MBA, Yale University. Leads Kalyan's commercial strategy and distribution.</p>
+        <ul class="member-desc">
+          <li>Global Sales, Ritz-Carlton Yacht Collection</li>
+          <li>Senior roles at Sonder, Cathay Pacific &amp; Club Med</li>
+          <li>MBA, Yale University</li>
+        </ul>
       </div>
     </div>
 
