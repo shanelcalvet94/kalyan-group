@@ -33,7 +33,7 @@ a { text-decoration: none; color: inherit; }
 .btn-ghost:hover { border-color: rgba(255,255,255,0.9); color: #fff; }
 nav#mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 80px; background: var(--indigo); transition: box-shadow 0.3s; }
 nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
-.nav-logo img { height: 32px; width: auto; }
+.nav-logo img { height: 46px; width: auto; }
 .nav-links { list-style: none; display: flex; gap: 36px; align-items: center; }
 .nav-links a { font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: #B8B3AA; transition: color 0.2s; }
 .nav-links a:hover { color: #fff; }
@@ -76,7 +76,7 @@ nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
 /* SERVICES */
 #services { background: var(--indigo); padding: 100px 0; }
 #services .section-label { color: #8A8378; }
-.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 64px; }
 .services-intro h2 { font-family: var(--serif); font-size: clamp(32px, 3.5vw, 48px); font-weight: 300; line-height: 1.15; color: #fff; }
 .services-intro h2 em { font-style: italic; color: var(--sand); }
 .services-intro p { font-family: var(--sans); font-size: 15px; font-weight: 300; line-height: 1.8; color: #C4BEB5; }
@@ -105,15 +105,14 @@ nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
 /* ANAIA */
 #anaia { background: var(--indigo-dark); padding: 100px 0; }
 #anaia .section-label { color: #8A8378; }
-.anaia-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 16px; }
-.anaia-intro h2 { font-family: var(--serif); font-size: clamp(32px, 3.5vw, 48px); font-weight: 300; line-height: 1.15; color: #fff; }
+.anaia-intro { margin-bottom: 20px; }
+.anaia-intro h2 { font-family: var(--serif); font-size: clamp(32px, 3.5vw, 48px); font-weight: 300; line-height: 1.15; color: #fff; margin-bottom: 24px; }
 .anaia-intro h2 em { font-style: italic; color: var(--sand); }
-.anaia-intro-right p { font-family: var(--sans); font-size: 15px; font-weight: 300; line-height: 1.8; color: #C4BEB5; margin-bottom: 16px; }
-.anaia-intro-right p:last-child { margin-bottom: 0; }
-.anaia-positioning { font-family: var(--serif); font-size: 17px; font-weight: 300; font-style: italic; color: var(--sand); margin-bottom: 64px; padding-top: 8px; }
+.anaia-intro p { font-family: var(--sans); font-size: 15px; font-weight: 300; line-height: 1.8; color: #C4BEB5; max-width: 760px; }
+.anaia-positioning { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--sand); margin-bottom: 64px; padding-top: 4px; max-width: 760px; }
 .anaia-concepts { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 72px; }
 .concept-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); overflow: hidden; }
-.concept-photo { width: 100%; height: 280px; object-fit: cover; display: block; filter: brightness(0.85); transition: transform 0.6s ease, filter 0.4s; }
+.concept-photo { width: 100%; max-width: 100%; height: 280px; object-fit: cover; object-position: center; display: block; filter: brightness(0.85); transition: transform 0.6s ease, filter 0.4s; }
 .concept-card:hover .concept-photo { transform: scale(1.03); filter: brightness(0.95); }
 .concept-card-body { padding: 36px; }
 .coming-soon-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sand); background: rgba(217,201,186,0.08); border: 1px solid rgba(217,201,186,0.2); padding: 6px 12px; margin-bottom: 20px; }
@@ -132,9 +131,9 @@ nav#mainNav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.18); }
 .dest-photo-area { position: relative; height: 300px; overflow: hidden; }
 .dest-bg { position: absolute; inset: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: brightness(0.6); transition: transform 0.7s ease, filter 0.4s; }
 .dest-card:hover .dest-bg { transform: scale(1.06); filter: brightness(0.75); }
-.dest-sanmiguel { background-color: #6B4E3D; background-image: url('https://images.unsplash.com/photo-1565600444102-c14b0d568e43?w=800&q=80'); }
+.dest-sanmiguel { background-color: #6B4E3D; background-image: url('https://images.unsplash.com/photo-1601659296929-1c38f261a1f7?w=800&q=80'); }
 .dest-nisibon { background-color: #1B4A6B; background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80'); }
-.dest-chacala { background-color: #2D5940; background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80'); }
+.dest-chacala { background-color: #2D5940; background-image: url('https://images.unsplash.com/photo-1573790387438-4da905039392?w=800&q=80'); }
 .dest-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,34,58,0.7) 0%, transparent 60%); }
 .dest-photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; }
 .dest-location { font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C4BEB5; margin-bottom: 6px; }
@@ -221,6 +220,8 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
   .services-grid { grid-template-columns: 1fr; }
   .approach-cards { grid-template-columns: 1fr; }
   .anaia-concepts { grid-template-columns: 1fr; }
+  .concept-card { width: 100%; overflow: hidden; }
+  .concept-photo { width: 100%; height: 240px; }
   .destinations-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .contact-services { grid-template-columns: 1fr; }
@@ -284,11 +285,11 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
     <div class="section-label">Our Vision</div>
     <div class="vision-grid">
       <div class="vision-left">
-        <h2>Well-being is the new luxury. <em>Belonging is the ultimate aspiration.</em></h2>
+        <h2>Well-being is the new luxury. <span style="color:var(--terracotta)">Belonging is the ultimate aspiration.</span></h2>
         <blockquote class="vision-quote">"Today's travelers seek more than comfort and luxury — they seek experiences that improve their well-being and create genuine human connection."</blockquote>
       </div>
       <div class="vision-right">
-        <p>Kalyan Group develops and manages distinctive hospitality concepts built around one belief: that the best hospitality doesn't just serve guests — it brings them together.</p>
+        <p>Kalyan Group develops and manages distinctive hospitality concepts built around one belief: that the best hospitality doesn't just serve guests — <strong>it brings them together.</strong></p>
         <p>We exist to respond to a fundamental shift in how people travel, live, and invest. Loneliness has become one of the defining challenges of modern life. Wellness has moved from amenity to primary travel driver. And the most valuable hospitality assets will be those that create communities, not just comfortable stays.</p>
         <p>Founded by two lifelong friends with decades of combined experience at the world's leading resort brands, Kalyan combines operational excellence with a deeper focus on belonging, transformation, and long-term performance — for guests and owners alike.</p>
       </div>
@@ -379,12 +380,8 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
   <div class="section-inner">
     <div class="section-label">Our Brand</div>
     <div class="anaia-intro">
-      <div>
-        <h2>ANAIA: the concept we built to <em>prove the model.</em></h2>
-      </div>
-      <div class="anaia-intro-right">
-        <p>ANAIA is Kalyan Group's own hospitality brand — a resort and residential concept currently in development, engineered from the ground up around well-being, community, and transformation. It is both our flagship offering and the clearest expression of what a Kalyan-managed property can be.</p>
-      </div>
+      <h2>ANAIA: the concept we built to <em>prove the model.</em></h2>
+      <p>ANAIA is Kalyan Group's own hospitality brand — a resort and residential concept currently in development, engineered from the ground up around well-being, community, and transformation. It is both our flagship offering and the clearest expression of what a Kalyan-managed property can be.</p>
     </div>
     <p class="anaia-positioning">Built for active adults seeking wellness, learning, and connection. A new category at the intersection of destination resort and purposeful living.</p>
 
@@ -490,7 +487,7 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
   <div class="section-inner">
     <div class="section-label">Our Team</div>
     <div class="team-header">
-      <h2>An operational platform <em>built to perform.</em></h2>
+      <h2>An operational platform <em style="color:var(--terracotta)">built to perform.</em></h2>
       <p>Kalyan Group combines senior executive leadership with a full operational team across every hospitality discipline — marketing, sales, food &amp; beverage, rooms, wellness, and purchasing. We don't bring in a strategy team and hand things over. We stay and run it.</p>
       <div class="team-pedigree">
         <span class="team-pedigree-label">Pedigree</span>
@@ -511,7 +508,7 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Kevin Batt</p>
         <p class="member-role">Chief Executive Officer</p>
-        <p class="member-desc">Kevin co-founded Kalyan after 27 years at Club Med, most recently as VP of Operations, Product &amp; Development for the Americas, managing 9 resorts, 5,000 employees, and $360M in revenue. He opened Club Med's flagship Miches and Charlevoix resorts and led expansions across Punta Cana, Cancún, and Guadeloupe. As CEO, Kevin sets Kalyan's strategic direction and leads its relationships with ownership and capital partners.</p>
+        <p class="member-desc">27 years at Club Med — most recently VP of Operations, Product &amp; Development for the Americas, overseeing 9 resorts, 5,000 employees, and $360M in revenue. Opened Club Med's flagship Miches and Charlevoix resorts. As CEO, Kevin sets Kalyan's strategic direction and leads owner relationships.</p>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
@@ -519,31 +516,31 @@ footer { background: var(--indigo-dark); padding: 60px 0 40px; }
         </div>
         <p class="member-name">Gregg Snyder</p>
         <p class="member-role">Chief Operating Officer</p>
-        <p class="member-desc">Gregg co-founded Kalyan after two decades of resort operations leadership, including 13 years as a Club Med Resort General Manager across 12 resorts spanning the US, Mexico, Southeast Asia, Europe, Israel, and the Caribbean, and four years as Product Director for Asia Pacific. He also led lifestyle and leisure programming for BlueStar Resort &amp; Golf's active-adult communities — experience directly aligned with ANAIA's model.</p>
+        <p class="member-desc">Two decades of resort operations leadership — 13 years as a Club Med General Manager across 12 resorts in the US, Mexico, Asia, Europe, and the Caribbean, then four years as Product Director for Asia Pacific. Also led lifestyle programming for BlueStar Resort &amp; Golf's active-adult communities, directly aligned with ANAIA's model.</p>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
-          <img class="member-photo" src="john_vanderslice.jpg" alt="John Vanderslice">
+          <img class="member-photo" src="john_vanderslice.jpeg" alt="John Vanderslice">
         </div>
         <p class="member-name">John Vanderslice</p>
         <p class="member-role">Senior Advisor</p>
-        <p class="member-desc">John brings more than two decades of luxury hospitality leadership, including eight years as Hilton's Global Head of Luxury &amp; Lifestyle Brands, where he established the vision for Waldorf Astoria, Conrad, and Canopy. He previously served as CEO of Miraval Arizona, the No. 1-rated destination resort spa, and as CEO of Club Méd's North and South America operations. John advises Kalyan on brand positioning and growth.</p>
+        <p class="member-desc">Eight years as Hilton's Global Head of Luxury &amp; Lifestyle Brands, shaping Waldorf Astoria, Conrad, and Canopy. Former CEO of Miraval Arizona (No. 1-rated destination spa) and Club Méd Americas. Advises Kalyan on brand positioning and growth.</p>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
-          <img class="member-photo" src="pablo_gonzalez.jpg" alt="Pablo Gonzalez Carpizo">
+          <img class="member-photo" src="pablo_gonzalez.jpeg" alt="Pablo Gonzalez Carpizo">
         </div>
         <p class="member-name">Pablo Gonzalez Carpizo</p>
         <p class="member-role">Chief Development Officer</p>
-        <p class="member-desc">Pablo brings 20 years of global hotel development experience, including Head of Development for the Americas at Meliá Hotels International, VP of Acquisitions and Development at Hyatt Hotels Corporation, and Director of Acquisitions and Development at Starwood Hotels &amp; Resorts. Pablo leads Kalyan's site selection, entitlement, and construction oversight across the ANAIA pipeline.</p>
+        <p class="member-desc">20 years in global hotel development — Head of Development Americas at Meliá Hotels International, VP Acquisitions &amp; Development at Hyatt, and Director of Acquisitions at Starwood. Leads Kalyan's site selection, entitlement, and construction oversight across the ANAIA pipeline.</p>
       </div>
       <div class="team-member">
         <div class="member-photo-wrap">
-          <img class="member-photo" src="patrick_mitchell.jpg" alt="Patrick Mitchell">
+          <img class="member-photo" src="patrick_mitchell.jpeg" alt="Patrick Mitchell">
         </div>
         <p class="member-name">Patrick Mitchell</p>
         <p class="member-role">Chief Revenue Officer</p>
-        <p class="member-desc">Patrick is a global commercial and brand executive with more than 25 years scaling sales, marketing, and ecommerce organizations across travel and hospitality. He most recently led global sales for The Ritz-Carlton Yacht Collection, with earlier senior roles at Sonder, Cathay Pacific Airways, and Club Med. Patrick holds an MBA from Yale University and leads Kalyan's commercial strategy and distribution.</p>
+        <p class="member-desc">25+ years in commercial travel and hospitality leadership. Most recently led global sales for The Ritz-Carlton Yacht Collection; earlier roles at Sonder, Cathay Pacific, and Club Med. MBA, Yale University. Leads Kalyan's commercial strategy and distribution.</p>
       </div>
     </div>
 
